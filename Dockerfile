@@ -37,6 +37,8 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN git clone https://github.com/mannaandpoem/OpenManus.git /app
 WORKDIR /app
 
+RUN sed -i 's/headless=False/headless=True/g' /app/app/tool/browser_use_tool.py
+
 # 创建虚拟环境并安装依赖
 RUN uv venv && \
     . .venv/bin/activate && \
